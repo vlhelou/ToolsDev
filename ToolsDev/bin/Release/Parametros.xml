@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Parametros>
+  <Servidores>
+    <SrvBancos Nome="Local" ConnectionString="data source=(local);integrated security=true" />
+	<SrvBancos Nome="Sql 2014" ConnectionString="data source=(local)\SQL2014;integrated security=true" />
+    <SrvBancos Nome="SDF56" ConnectionString="data source=sdf56;user id=usrsquadra; pwd=usrsquadra090807" />
+  </Servidores>
+</Parametros>
