@@ -1,0 +1,18 @@
+{
+    "Conexoes": [
+        {
+            "Server": "sqlh117",
+            "Database": "",
+            "Trust": true,
+            "User": "",
+            "Password": ""
+        },
+        {
+            "Server": "sqlh116",
+            "Database": "",
+            "Trust": true,
+            "User": "",
+            "Password": ""
+        }
+    ]
+}

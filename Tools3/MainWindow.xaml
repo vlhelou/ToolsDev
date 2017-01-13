@@ -1,0 +1,33 @@
+﻿<Window x:Class="Tools3.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:Tools3"
+		mc:Ignorable="d"
+		Background="Black"
+		Title="Tools Dev" Height="350" Width="525">
+	
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="120" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<StackPanel Orientation="Vertical">
+			<TextBlock Text="Banco" />
+			<Button Content="Sql2Código" CommandParameter="sql2codigo" Click="btnNavega_Click"/>
+			<Button Content="Busca Banco" CommandParameter="buscabanco" />
+			<Button Content="Dicionário" CommandParameter="dicionario" />
+			<Button Content="Monta in" CommandParameter="montain" />
+			<Button Content="Gera insert" CommandParameter="gerainsert" />
+			<TextBlock Text="Outros" />
+			<Button Content="Cria Classe" CommandParameter="criaclasse" />
+			<Button Content="Le Linhas" CommandParameter="lelinhas" />
+		</StackPanel>
+		<Frame x:Name="FMPrincipal" Grid.Column="1" NavigationUIVisibility="Hidden" >
+			
+		</Frame>
+		
+	</Grid>
+	
+</Window>

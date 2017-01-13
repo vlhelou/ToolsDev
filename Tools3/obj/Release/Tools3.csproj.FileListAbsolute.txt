@@ -1,0 +1,14 @@
+C:\GitHub\ToolsDev\Tools3\bin\Release\Tools3.exe.config
+C:\GitHub\ToolsDev\Tools3\bin\Release\Tools3.exe
+C:\GitHub\ToolsDev\Tools3\bin\Release\Tools3.pdb
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.csprojResolveAssemblyReference.cache
+C:\GitHub\ToolsDev\Tools3\obj\Release\MainWindow.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Release\App.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3_MarkupCompile.cache
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3_MarkupCompile.lref
+C:\GitHub\ToolsDev\Tools3\obj\Release\MainWindow.baml
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.g.resources
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.Properties.Resources.resources
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.csproj.GenerateResource.Cache
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.exe
+C:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.pdb

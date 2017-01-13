@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\GitHub\ToolsDev\ToolsDev\obj\Debug\
+C:\GitHub\ToolsDev\ToolsDev\obj\Debug\
 ToolsDev
 none
 false
 DEBUG;TRACE
-E:\GitHub\ToolsDev\ToolsDev\App.xaml
+C:\GitHub\ToolsDev\ToolsDev\App.xaml
 11-559657868
 
-211996460198
+211574810149
 141755987458
 Branch.xaml;BuscaBanco.xaml;CriaClasse.xaml;Dicionario.xaml;GeraInsert.xaml;leCatMat.xaml;LeLinhas.xaml;MainWindow.xaml;MontaIN.xaml;Sql2Codigo.xaml;ucConexao.xaml;
 
-True
+False
 

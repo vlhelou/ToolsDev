@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Tools3.ucConexao"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Tools3"
+			 mc:Ignorable="d" 
+			 Width="380"
+			 Height="130"
+			 d:DesignHeight="300" d:DesignWidth="300">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Horizontal" Grid.Row="0" >
+			<StackPanel Orientation="Vertical" MinWidth="100" >
+				<TextBlock Text="Lista" Foreground="White" />
+				<ComboBox ItemsSource="{Binding Conexoes}"  
+					  DisplayMemberPath="Nome" 
+					  SelectedItem="{Binding Conexao}"
+					  Foreground="Black" />
+			</StackPanel>
+			<StackPanel Orientation="Vertical" MinWidth="100" >
+				<TextBlock Text="Servidor" Foreground="White" />
+				<TextBox Text="{Binding Conexao.Server}" />
+			</StackPanel>
+			<StackPanel Orientation="Vertical" MinWidth="100" >
+				<TextBlock Text="Database" Foreground="White" />
+				<TextBox Text="{Binding Conexao.Database}" />
+			</StackPanel>
+			<StackPanel Orientation="Vertical" >
+				<TextBlock Text="Trust" Foreground="White" />
+				<CheckBox IsChecked="{Binding IsTrust, Mode=TwoWay}"   />
+			</StackPanel>
+
+		</StackPanel>
+
+		<StackPanel Orientation="Horizontal" Grid.Row="1">
+			<StackPanel Orientation="Vertical" MinWidth="100">
+				<TextBlock Text="Usuário" Foreground="White" />
+				<TextBox IsEnabled="{Binding Conexao.NTrust}" />
+			</StackPanel>
+			<StackPanel Orientation="Vertical" MinWidth="100">
+				<TextBlock Text="Senha" Foreground="White" />
+				<PasswordBox IsEnabled="{Binding Conexao.NTrust}"/>
+			</StackPanel>
+			<Button Content="Cnt" MinWidth="80" VerticalAlignment="Center" Click="Connecta_Click"  />
+		</StackPanel>
+		
+	</Grid>
+</UserControl>
