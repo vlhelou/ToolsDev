@@ -2,7 +2,7 @@
     "Conexoes": [
         {
             "Server": "sqlh117",
-            "Database": "",
+            "Database": "Infraestrutura",
             "Trust": true,
             "User": "",
             "Password": ""

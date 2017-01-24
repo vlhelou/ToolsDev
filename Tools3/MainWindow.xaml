@@ -6,6 +6,8 @@
 		xmlns:local="clr-namespace:Tools3"
 		mc:Ignorable="d"
 		Background="Black"
+		MinWidth="1000"
+		MinHeight="600"
 		Title="Tools Dev" Height="350" Width="525">
 	
 	<Grid>
@@ -16,7 +18,7 @@
 		<StackPanel Orientation="Vertical">
 			<TextBlock Text="Banco" />
 			<Button Content="Sql2Código" CommandParameter="sql2codigo" Click="btnNavega_Click"/>
-			<Button Content="Busca Banco" CommandParameter="buscabanco" />
+			<Button Content="Busca Banco" CommandParameter="buscabanco" Click="btnNavega_Click"/>
 			<Button Content="Dicionário" CommandParameter="dicionario" />
 			<Button Content="Monta in" CommandParameter="montain" />
 			<Button Content="Gera insert" CommandParameter="gerainsert" />

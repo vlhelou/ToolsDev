@@ -36,7 +36,8 @@ namespace Tools3
 				case "sql2codigo":
 					FMPrincipal.Navigate(new View.Banco.Sql2Codigo());
 					break;
-				case "btnComando":
+				case "buscabanco":
+					FMPrincipal.Navigate(new View.Banco.BuscaBanco());
 					break;
 			}
 			

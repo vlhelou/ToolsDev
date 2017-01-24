@@ -46,7 +46,7 @@
 				<TextBlock Text="Senha" Foreground="White" />
 				<PasswordBox IsEnabled="{Binding Conexao.NTrust}"/>
 			</StackPanel>
-			<Button Content="Cnt" MinWidth="80" VerticalAlignment="Center" Click="Connecta_Click"  />
+			<Button Content="Cnt" MinWidth="80" VerticalAlignment="Center" Click="Conecta"  />
 		</StackPanel>
 		
 	</Grid>

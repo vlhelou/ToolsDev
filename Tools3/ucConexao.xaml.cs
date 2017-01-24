@@ -22,7 +22,8 @@ namespace Tools3
 	public partial class ucConexao : UserControl
 	{
 
-		SqlConnection ConexaoDB;
+
+		public SqlConnection ConexaoDB { get; set; }
 		ViewModel.ucConexaoViewModel viewmodel = new ViewModel.ucConexaoViewModel();
 		public ucConexao()
 		{
@@ -30,10 +31,15 @@ namespace Tools3
 			DataContext = viewmodel;
 		}
 
-		private void Connecta_Click(object sender, RoutedEventArgs e)
+		public event EventHandler ConexaoAberta;
+
+		protected void Conecta(object sender, EventArgs e)
 		{
 			ConexaoDB = viewmodel.Connecta();
+			if (this.ConexaoAberta!=null)
+				this.ConexaoAberta(this, e);
 		}
+
 
 	}
 }

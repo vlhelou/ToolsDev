@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\GitHub\ToolsDev\Tools3\App.xaml
-3-1890064248
+41242953831
 
-15-1243342198
+19886740813
 14-2003448593
-MainWindow.xaml;ucConexao.xaml;View\Banco\Sql2Codigo.xaml;
+MainWindow.xaml;ucConexao.xaml;View\Banco\BuscaBanco.xaml;View\Banco\Sql2Codigo.xaml;
 
-True
+False
 

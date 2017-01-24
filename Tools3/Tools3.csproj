@@ -60,12 +60,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CommandHandler.cs" />
+    <Compile Include="Model\Banco\BuscaBanco\ItensLocalizadosModel.cs" />
+    <Compile Include="Model\Banco\BuscaBanco\ObjetoBancoModel.cs" />
     <Compile Include="Model\ucConexaoModel.cs" />
     <Compile Include="ucConexao.xaml.cs">
       <DependentUpon>ucConexao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Banco\BuscaBancoViewModel.cs" />
     <Compile Include="ViewModel\Banco\Sql2CodigoViewModel.cs" />
     <Compile Include="ViewModel\ucConexaoViewModel.cs" />
+    <Compile Include="View\Banco\BuscaBanco.xaml.cs">
+      <DependentUpon>BuscaBanco.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Banco\Sql2Codigo.xaml.cs">
       <DependentUpon>Sql2Codigo.xaml</DependentUpon>
     </Compile>
@@ -82,6 +88,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ucConexao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Banco\BuscaBanco.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

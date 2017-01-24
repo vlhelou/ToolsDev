@@ -19,3 +19,6 @@ C:\GitHub\ToolsDev\Tools3\bin\Debug\Newtonsoft.Json.dll
 C:\GitHub\ToolsDev\Tools3\bin\Debug\Newtonsoft.Json.xml
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Sql2Codigo.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Sql2Codigo.baml
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\BuscaBanco.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\BuscaBanco.baml
+C:\GitHub\ToolsDev\Tools3\obj\Debug\GeneratedInternalTypeHelper.g.cs
