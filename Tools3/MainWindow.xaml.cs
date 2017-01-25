@@ -39,8 +39,11 @@ namespace Tools3
 				case "buscabanco":
 					FMPrincipal.Navigate(new View.Banco.BuscaBanco());
 					break;
+				case "dicionario":
+					FMPrincipal.Navigate(new View.Banco.Dicionario());
+					break;
 			}
-			
+
 
 		}
 

@@ -19,7 +19,7 @@
 			<TextBlock Text="Banco" />
 			<Button Content="Sql2Código" CommandParameter="sql2codigo" Click="btnNavega_Click"/>
 			<Button Content="Busca Banco" CommandParameter="buscabanco" Click="btnNavega_Click"/>
-			<Button Content="Dicionário" CommandParameter="dicionario" />
+			<Button Content="Dicionário" CommandParameter="dicionario"  Click="btnNavega_Click"/>
 			<Button Content="Monta in" CommandParameter="montain" />
 			<Button Content="Gera insert" CommandParameter="gerainsert" />
 			<TextBlock Text="Outros" />

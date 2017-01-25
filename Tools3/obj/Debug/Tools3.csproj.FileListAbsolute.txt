@@ -22,3 +22,5 @@ C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Sql2Codigo.baml
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\BuscaBanco.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\BuscaBanco.baml
 C:\GitHub\ToolsDev\Tools3\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Dicionario.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Dicionario.baml
