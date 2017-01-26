@@ -42,6 +42,9 @@ namespace Tools3
 				case "dicionario":
 					FMPrincipal.Navigate(new View.Banco.Dicionario());
 					break;
+				case "montain":
+					FMPrincipal.Navigate(new View.Banco.MontaIn());
+					break;
 			}
 
 

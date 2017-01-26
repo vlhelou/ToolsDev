@@ -24,3 +24,5 @@ C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\BuscaBanco.baml
 C:\GitHub\ToolsDev\Tools3\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Dicionario.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\Dicionario.baml
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\MontaIn.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\MontaIn.baml
