@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Data;
+using System.Windows;
 
 namespace Tools3.ViewModel
 {
 	public class ucConexaoViewModel : INotifyPropertyChanged
 	{
+		private System.Data.SqlClient.SqlConnection _cn= new System.Data.SqlClient.SqlConnection();
 		public ucConexaoViewModel()
 		{
 			string origem = System.AppDomain.CurrentDomain.BaseDirectory + "conexoes.json";
@@ -28,6 +31,30 @@ namespace Tools3.ViewModel
 				OnPropertyChanged(nameof(Conexoes));
 
 			}
+			_cn.StateChange += MudaEstadoConexao();
+		}
+
+		private StateChangeEventHandler MudaEstadoConexao()
+		{
+			if (_cn.State == ConnectionState.Open)
+			{
+				Conectado = true;
+				DesConectado = false;
+				ShowConecta = Visibility.Collapsed;
+				ShowDesConecta = Visibility.Visible;
+			} else
+			{
+				Conectado = false;
+				DesConectado = true;
+				ShowConecta = Visibility.Visible;
+				ShowDesConecta = Visibility.Collapsed;
+
+			}
+			OnPropertyChanged(nameof(ShowConecta));
+			OnPropertyChanged(nameof(ShowDesConecta));
+			OnPropertyChanged(nameof(Conectado));
+			OnPropertyChanged(nameof(DesConectado));
+			return null;
 		}
 
 		public ObservableCollection<Model.ucConexaoModel> Conexoes { get; set; } = new ObservableCollection<Model.ucConexaoModel>();
@@ -70,17 +97,32 @@ namespace Tools3.ViewModel
 			str.IntegratedSecurity = _Conexao.Trust;
 			str.UserID = _Conexao.User;
 			str.Password = _Conexao.Password;
-			System.Data.SqlClient.SqlConnection cn = new System.Data.SqlClient.SqlConnection(str.ConnectionString);
+			_cn.ConnectionString = str.ConnectionString;
 			try
 			{
-				cn.Open();
-				return cn;
+				
+				_cn.Open();
+				_cn.StateChange += MudaEstadoConexao();
+				return _cn;
 			} catch(Exception ex)
 			{
 				Debug.WriteLine(ex.Message);
 				return null;
 			}
 		}
+
+		public void Desconecta()
+		{
+			_cn.Close();
+			_cn.StateChange += MudaEstadoConexao();
+
+		}
+
+		public bool Conectado { get; set; }
+		public bool DesConectado { get; set; }
+		public Visibility ShowConecta { get; set; } = Visibility.Visible;
+		public Visibility ShowDesConecta { get; set; } = Visibility.Collapsed;
+
 		protected void OnPropertyChanged(string propertyname)
 		{
 			if (PropertyChanged != null)

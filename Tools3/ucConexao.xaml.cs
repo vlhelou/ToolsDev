@@ -32,14 +32,19 @@ namespace Tools3
 		}
 
 		public event EventHandler ConexaoAberta;
+		public event EventHandler ConexaoFechada;
 
 		protected void Conecta(object sender, EventArgs e)
 		{
 			ConexaoDB = viewmodel.Connecta();
-			if (this.ConexaoAberta!=null)
-				this.ConexaoAberta(this, e);
+			ConexaoAberta?.Invoke(this, e);
 		}
 
+		protected void DesConecta(object sender, EventArgs e)
+		{
+			viewmodel.Desconecta();
+			ConexaoFechada?.Invoke(this, e);
+		}
 
 	}
 }
