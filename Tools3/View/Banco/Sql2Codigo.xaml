@@ -24,7 +24,7 @@
 	</Page.Resources>
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="70" />
+			<RowDefinition Height="60" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<GroupBox Grid.Row="0">
@@ -38,7 +38,7 @@
 					<RadioButton IsChecked="{Binding SaidaStringBuilder, Mode=TwoWay}" Content="C# StringBuilder" />
 					<RadioButton IsChecked="{Binding SaidaIgua, Mode=TwoWay}" Content="C# +=" />
 				</StackPanel>
-				<StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,0,0">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,0,0">
 					<TextBlock VerticalAlignment="Center">Variavel:</TextBlock>
 					<TextBox VerticalAlignment="Center" Foreground="Black" MinWidth="80" Text="{Binding Variavel, Mode=TwoWay}" />
 				</StackPanel>
@@ -49,29 +49,37 @@
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="50" />
+				<ColumnDefinition Width="60" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="30"/>
+				<RowDefinition Height="20"/>
 				<RowDefinition Height="*"/>
 			</Grid.RowDefinitions>
-			<TextBlock Text="SQL" Grid.Column="0" Grid.Row="0" />
-			<TextBlock Text="Código" Grid.Column="2" Grid.Row="0"/>
+			<TextBlock Text="SQL" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" />
+			<TextBlock Text="Código" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center"/>
 
 			<ScrollViewer Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
 				<Border>
-					<TextBox Foreground="Black" AcceptsReturn="True" Text="{Binding SQL, Mode=TwoWay}"/>
+					<TextBox Foreground="Black" AcceptsReturn="True" Text="{Binding SQL, Mode=TwoWay}" >
+						<TextBox.InputBindings>
+							<MouseBinding MouseAction="LeftDoubleClick" Command="{Binding SqlDblClick}" />
+						</TextBox.InputBindings>
+					</TextBox>
 				</Border>
 			</ScrollViewer>
 			<StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-				<Button Command="{Binding SqltoCodigoClick}">&gt;&gt;</Button>
-				<Button Command="{Binding CodigotoSqlClick}">&lt;&lt;</Button>
+				<Button Margin="5" Command="{Binding SqltoCodigoClick}">&gt;&gt;</Button>
+				<Button Margin="5" Command="{Binding CodigotoSqlClick}">&lt;&lt;</Button>
 			</StackPanel>
 
 			<ScrollViewer Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
 				<Border>
-					<TextBox Foreground="Black" AcceptsReturn="True" Text="{Binding Codigo, Mode=TwoWay}" />
+					<TextBox Foreground="Black" AcceptsReturn="True" Text="{Binding Codigo, Mode=TwoWay}"  >
+						<TextBox.InputBindings>
+							<MouseBinding MouseAction="LeftDoubleClick" Command="{Binding ComandoDblClick}" />
+						</TextBox.InputBindings>
+					</TextBox>
 				</Border>
 			</ScrollViewer>
 

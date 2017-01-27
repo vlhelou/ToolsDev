@@ -163,7 +163,39 @@ namespace Tools3.ViewModel.Banco
 
 		}
 
+		public ICommand SqlDblClick
+		{
+			get
+			{
+				return new CommandHandler(() => SqlDbl());
+			}
 
+		}
+
+		public void SqlDbl()
+		{
+			SQL = System.Windows.Clipboard.GetText();
+			OnPropertyChanged(nameof(SQL));
+			SqltoCodigoDo();
+		}
+
+
+		public ICommand ComandoDblClick
+		{
+			get
+			{
+				return new CommandHandler(() => ComandoDbl());
+			}
+
+		}
+
+		public void ComandoDbl()
+		{
+			Codigo= System.Windows.Clipboard.GetText();
+			OnPropertyChanged(nameof(Codigo));
+			CodigotoSqlDo();
+
+		}
 		protected void OnPropertyChanged(string propertyname)
 		{
 			if (PropertyChanged != null)
