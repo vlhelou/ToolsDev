@@ -45,6 +45,9 @@ namespace Tools3
 				case "montain":
 					FMPrincipal.Navigate(new View.Banco.MontaIn());
 					break;
+				case "gerainsert":
+					FMPrincipal.Navigate(new View.Banco.GeraInsert());
+					break;
 			}
 
 

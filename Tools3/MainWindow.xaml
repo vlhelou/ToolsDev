@@ -21,7 +21,7 @@
 			<Button Content="Busca Banco" CommandParameter="buscabanco" Click="btnNavega_Click"/>
 			<Button Content="Dicionário" CommandParameter="dicionario" Click="btnNavega_Click"/>
 			<Button Content="Monta in" CommandParameter="montain" Click="btnNavega_Click"/>
-			<Button Content="Gera insert" CommandParameter="gerainsert" />
+			<Button Content="Gera insert" CommandParameter="gerainsert" Click="btnNavega_Click"/>
 			<TextBlock Text="Outros" />
 			<Button Content="Cria Classe" CommandParameter="criaclasse" />
 			<Button Content="Le Linhas" CommandParameter="lelinhas" />

@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="ViewModel\Banco\BuscaBancoViewModel.cs" />
     <Compile Include="ViewModel\Banco\DicionarioViewModel.cs" />
+    <Compile Include="ViewModel\Banco\GeraInsertViewModel.cs" />
     <Compile Include="ViewModel\Banco\MontaInViewModel.cs" />
     <Compile Include="ViewModel\Banco\Sql2CodigoViewModel.cs" />
     <Compile Include="ViewModel\ucConexaoViewModel.cs" />
@@ -77,6 +78,9 @@
     </Compile>
     <Compile Include="View\Banco\Dicionario.xaml.cs">
       <DependentUpon>Dicionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Banco\GeraInsert.xaml.cs">
+      <DependentUpon>GeraInsert.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Banco\MontaIn.xaml.cs">
       <DependentUpon>MontaIn.xaml</DependentUpon>
@@ -105,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Banco\Dicionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Banco\GeraInsert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
