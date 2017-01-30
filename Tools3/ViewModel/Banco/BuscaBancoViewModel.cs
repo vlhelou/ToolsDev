@@ -28,21 +28,34 @@ namespace Tools3.ViewModel.Banco
 				_cn = value;
 				if (_cn.State == ConnectionState.Open)
 				{
+					BuscaLiberada = true;
 					cmd = _cn.CreateCommand();
 					PopulaBase();
 				}
 				else
 				{
+					BuscaLiberada = false;
 					_Base = new ObjetoBancoModel();
+					
+
 				}
+				Localizados.Clear();
+				TabelasFeitas = 0;
+				TabelasTotal = 1;
 
 				OnPropertyChanged(nameof(Base));
+				OnPropertyChanged(nameof(Localizados));
+				OnPropertyChanged(nameof(TabelasFeitas));
+				OnPropertyChanged(nameof(TabelasTotal));
+				OnPropertyChanged(nameof(BuscaLiberada));
+
 			}
 		}
 
+		public bool BuscaLiberada { get; set; } = false;
 		public string Alvo { get; set; }
 
-		public int TabelasTotal { get; set; } = 0;
+		public int TabelasTotal { get; set; } = 1;
 		public int TabelasFeitas { get; set; } = 0;
 
 		private ObjetoBancoModel _Base = new ObjetoBancoModel();

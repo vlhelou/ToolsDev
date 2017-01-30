@@ -54,9 +54,11 @@
 				<TextBlock Text="Senha" Foreground="White" />
 				<PasswordBox IsEnabled="{Binding Conexao.NTrust}"/>
 			</StackPanel>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
 			<Button Content="Conecta" Height="30" Visibility="{Binding ShowConecta}" MinWidth="80" VerticalAlignment="Center" Click="Conecta"  />
 			<Button Content="Desconecta" Height="30" Background="Red" Visibility="{Binding ShowDesConecta}" MinWidth="80" VerticalAlignment="Center" Click="DesConecta"  />
-		</StackPanel>
 
+		</StackPanel>
 	</Grid>
 </UserControl>

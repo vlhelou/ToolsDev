@@ -17,14 +17,14 @@
 		</Grid.ColumnDefinitions>
 		<StackPanel Orientation="Vertical">
 			<TextBlock Text="Banco" />
-			<Button Content="Sql2Código" CommandParameter="sql2codigo" Click="btnNavega_Click"/>
-			<Button Content="Busca Banco" CommandParameter="buscabanco" Click="btnNavega_Click"/>
-			<Button Content="Dicionário" CommandParameter="dicionario" Click="btnNavega_Click"/>
-			<Button Content="Monta in" CommandParameter="montain" Click="btnNavega_Click"/>
-			<Button Content="Gera insert" CommandParameter="gerainsert" Click="btnNavega_Click"/>
+			<Button Content="Sql2Código" Margin="2" CommandParameter="sql2codigo" Click="btnNavega_Click"/>
+			<Button Content="Busca Banco" Margin="2" CommandParameter="buscabanco" Click="btnNavega_Click"/>
+			<Button Content="Dicionário" Margin="2" CommandParameter="dicionario" Click="btnNavega_Click"/>
+			<Button Content="Monta in" Margin="2" CommandParameter="montain" Click="btnNavega_Click"/>
+			<Button Content="Gera insert" Margin="2" CommandParameter="gerainsert" Click="btnNavega_Click"/>
 			<TextBlock Text="Outros" />
-			<Button Content="Cria Classe" CommandParameter="criaclasse" />
-			<Button Content="Le Linhas" CommandParameter="lelinhas" />
+			<Button Content="Cria Classe" Margin="2" CommandParameter="criaclasse" />
+			<Button Content="Le Linhas" Margin="2" CommandParameter="lelinhas" />
 		</StackPanel>
 		<Frame x:Name="FMPrincipal" Grid.Column="1" NavigationUIVisibility="Hidden" >
 			

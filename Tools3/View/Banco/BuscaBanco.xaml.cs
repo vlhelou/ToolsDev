@@ -27,13 +27,17 @@ namespace Tools3.View.Banco
 			InitializeComponent();
 			DataContext = viewmodel;
 			viewmodel.BarraExecucao = pgExecucao;
-			Conexao.ConexaoAberta += Connectou;
+			Conexao.ConexaoAberta += Conectou;
+			Conexao.ConexaoFechada += DesConectou;
 		}
 
-		public void Connectou (object sender, EventArgs e)
+		public void Conectou (object sender, EventArgs e)
 		{
-			//Debug.WriteLine("connectou");
-			//Debug.WriteLine(Conexao.ConexaoDB.State);
+			viewmodel.CN = Conexao.ConexaoDB;
+		}
+
+		public void DesConectou(object sender, EventArgs e)
+		{
 			viewmodel.CN = Conexao.ConexaoDB;
 		}
 
