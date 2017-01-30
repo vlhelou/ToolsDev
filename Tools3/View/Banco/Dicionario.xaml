@@ -27,18 +27,18 @@
 
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="150"/>
+			<RowDefinition Height="120"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="200"/>
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
-		<StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left">
-			<Tools3:ucConexao x:Name="Conexao"/>
-		</StackPanel>
-		<TreeView x:Name="treeView" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-				  ItemsSource="{Binding Base.Filhos}" Margin="0,148,0,2" Grid.RowSpan="2"
+		<Tools3:ucConexao x:Name="Conexao" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" />
+		<TreeView x:Name="treeView" 
+				  Grid.Column="0" Grid.Row="1"
+				  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+				  ItemsSource="{Binding Base.Filhos}"  
 				  SelectedItemChanged="treeView_SelectedItemChanged">
 			<TreeView.ItemTemplate>
 				<HierarchicalDataTemplate ItemsSource="{Binding Filhos}">
@@ -59,15 +59,15 @@
 				<TextBlock Text="{Binding Selecionado.NomeSql}"/>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" Grid.Row="1">
-				<StackPanel Orientation="Vertical">
+				<StackPanel Orientation="Vertical" VerticalAlignment="Center" MinWidth="60">
 					<TextBlock>Campo</TextBlock>
 					<TextBox Text="{Binding Campo, Mode=TwoWay}" />
 				</StackPanel>
-				<StackPanel Orientation="Vertical">
+				<StackPanel Orientation="Vertical" VerticalAlignment="Center" MinWidth="60">
 					<TextBlock>Valor</TextBlock>
 					<TextBox Text="{Binding Valor,Mode=TwoWay}" />
 				</StackPanel>
-				<Button Command="{Binding GravaDicionarioClick}" Content="Grava" />
+				<Button VerticalAlignment="Center" Height="30" HorizontalAlignment="Right" Command="{Binding GravaDicionarioClick}" Content="Grava" />
 			</StackPanel>
 			<DataGrid 
 				HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" 

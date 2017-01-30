@@ -26,14 +26,16 @@ namespace Tools3.View.Banco
 			InitializeComponent();
 			DataContext = viewmodel;
 			Conexao.ConexaoAberta += Connectou;
-
+			Conexao.ConexaoFechada += DesConectou;
 		}
 
 
 		public void Connectou(object sender, EventArgs e)
 		{
-			//Debug.WriteLine("connectou");
-			//Debug.WriteLine(Conexao.ConexaoDB.State);
+			viewmodel.CN = Conexao.ConexaoDB;
+		}
+		public void DesConectou(object sender, EventArgs e)
+		{
 			viewmodel.CN = Conexao.ConexaoDB;
 		}
 
