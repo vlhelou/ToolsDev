@@ -19,13 +19,13 @@
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 		<StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-			<RadioButton Content="Data" IsChecked="{Binding rdData}" />
-			<RadioButton Content="String" IsChecked="{Binding rdString}" />
-			<RadioButton Content="Sem Alteração" IsChecked="{Binding rdSemAlteracao}" />
-			<Button Content="Gera" Command="{Binding GeraClick}" />
+			<RadioButton Content="Data" IsChecked="{Binding rdData}" VerticalAlignment="Center" />
+			<RadioButton Content="String" IsChecked="{Binding rdString}" VerticalAlignment="Center" Margin="10,0,0,0" />
+			<RadioButton Content="Sem Alteração" IsChecked="{Binding rdSemAlteracao}" VerticalAlignment="Center" Margin="10,0,0,0" />
+			<Button Content="Gera" Command="{Binding GeraClick}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0" />
 		</StackPanel>
-		<TextBlock Text="Origem" Grid.Column="0" Grid.Row="1" />
-		<TextBlock Text="Destino" Grid.Column="1" Grid.Row="1"/>
+		<TextBlock Foreground="White" Text="Origem" Grid.Column="0" Grid.Row="1" />
+		<TextBlock Foreground="White" Text="Destino" Grid.Column="1" Grid.Row="1"/>
 
 		<ScrollViewer Grid.Row="2" Grid.Column="0" Margin="0,0,0,0" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
 			<Border>

@@ -48,6 +48,9 @@ namespace Tools3
 				case "gerainsert":
 					FMPrincipal.Navigate(new View.Banco.GeraInsert());
 					break;
+				case "criaclasse":
+					FMPrincipal.Navigate(new View.Programacao.CriaClasse());
+					break;
 			}
 
 
