@@ -30,3 +30,5 @@ C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\GeraInsert.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\GeraInsert.baml
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Programacao\CriaClasse.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\View\Programacao\CriaClasse.baml
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\LeLinhas.g.cs
+C:\GitHub\ToolsDev\Tools3\obj\Debug\View\LeLinhas.baml

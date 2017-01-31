@@ -1,0 +1,69 @@
+﻿<Page x:Class="Tools3.View.LeLinhas"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  xmlns:local="clr-namespace:Tools3.View"
+	  mc:Ignorable="d" 
+	  d:DesignHeight="300" d:DesignWidth="300"
+	  Title="LeLinhas">
+	<Page.Resources>
+		<Style TargetType="TextBlock">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontFamily" Value="Courier New"/>
+		</Style>
+		<Style TargetType="TextBox">
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="FontFamily" Value="Courier New"/>
+		</Style>
+		<Style TargetType="RadioButton">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontFamily" Value="Courier New"/>
+		</Style>
+
+	</Page.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="55"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="50" />
+		</Grid.ColumnDefinitions>
+		<Button Grid.Column="1" Command="{Binding ExecutaClick}">Le linhas</Button>
+		<StackPanel Orientation="Horizontal">
+			<StackPanel Orientation="Vertical">
+				<TextBlock>Arquivo</TextBlock>
+				<TextBox MinWidth="200" x:Name="arquivo" GotFocus="Arquivo_Focus" Text="{Binding ArquivoPath, Mode=TwoWay}" />
+
+			</StackPanel>
+			<StackPanel Orientation="Vertical">
+				<TextBlock>Início</TextBlock>
+				<TextBox Text="{Binding Inicio, Mode=TwoWay}" />
+			</StackPanel>
+			<StackPanel Orientation="Vertical">
+				<TextBlock>Término</TextBlock>
+				<TextBox Text="{Binding Termino, Mode=TwoWay}" />
+			</StackPanel>
+			<StackPanel Orientation="Vertical">
+				<TextBlock>Tipo</TextBlock>
+				<RadioButton IsChecked="{Binding rdLinha}">Linha</RadioButton>
+				<RadioButton IsChecked="{Binding rdByte}">byte</RadioButton>
+			</StackPanel>
+			<StackPanel Orientation="Vertical">
+				<TextBlock>Encode</TextBlock>
+				<ComboBox ItemsSource="{Binding Encodes}" SelectedItem="{Binding EncodeSelecionado}"  DisplayMemberPath="DisplayName" Foreground="Black"></ComboBox>
+			</StackPanel>
+		</StackPanel>
+		<ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,0" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+			<Border>
+				<TextBox Foreground="Black" AcceptsReturn="True" Text="{Binding Lido}"  >
+				</TextBox>
+			</Border>
+		</ScrollViewer>
+
+	</Grid>
+	
+</Page>

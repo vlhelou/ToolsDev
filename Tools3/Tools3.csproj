@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,6 +73,7 @@
     <Compile Include="ViewModel\Banco\GeraInsertViewModel.cs" />
     <Compile Include="ViewModel\Banco\MontaInViewModel.cs" />
     <Compile Include="ViewModel\Banco\Sql2CodigoViewModel.cs" />
+    <Compile Include="ViewModel\LeLinhasViewModel.cs" />
     <Compile Include="ViewModel\Programacao\CriaClasseViewModel.cs" />
     <Compile Include="ViewModel\ucConexaoViewModel.cs" />
     <Compile Include="View\Banco\BuscaBanco.xaml.cs">
@@ -88,6 +90,9 @@
     </Compile>
     <Compile Include="View\Banco\Sql2Codigo.xaml.cs">
       <DependentUpon>Sql2Codigo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LeLinhas.xaml.cs">
+      <DependentUpon>LeLinhas.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Programacao\CriaClasse.xaml.cs">
       <DependentUpon>CriaClasse.xaml</DependentUpon>
@@ -125,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Banco\Sql2Codigo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LeLinhas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

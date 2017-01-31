@@ -31,6 +31,7 @@ namespace Tools3
 			//FMApoio.Navigate(new View.PublicacaoPg(viewmodel));
 			//FMPrincipal.Navigate(typeof(View.Banco.Sql2Codigo));
 			Button botao = (Button)sender;
+			Titulo.Text = botao.Content.ToString();
 			switch (botao.CommandParameter.ToString())
 			{
 				case "sql2codigo":
@@ -50,6 +51,9 @@ namespace Tools3
 					break;
 				case "criaclasse":
 					FMPrincipal.Navigate(new View.Programacao.CriaClasse());
+					break;
+				case "lelinhas":
+					FMPrincipal.Navigate(new View.LeLinhas());
 					break;
 			}
 

@@ -11,11 +11,16 @@
 		Title="Tools Dev" Height="350" Width="525">
 	
 	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="120" />
 			<ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
-		<StackPanel Orientation="Vertical">
+		
+		<StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
 			<TextBlock Text="Banco" />
 			<Button Content="Sql2Código" Margin="2" CommandParameter="sql2codigo" Click="btnNavega_Click"/>
 			<Button Content="Busca Banco" Margin="2" CommandParameter="buscabanco" Click="btnNavega_Click"/>
@@ -24,9 +29,10 @@
 			<Button Content="Gera insert" Margin="2" CommandParameter="gerainsert" Click="btnNavega_Click"/>
 			<TextBlock Text="Outros" />
 			<Button Content="Cria Classe" Margin="2" CommandParameter="criaclasse" Click="btnNavega_Click"/>
-			<Button Content="Le Linhas" Margin="2" CommandParameter="lelinhas" />
+			<Button Content="Le Linhas" Margin="2" CommandParameter="lelinhas"  Click="btnNavega_Click"/>
 		</StackPanel>
-		<Frame x:Name="FMPrincipal" Grid.Column="1" NavigationUIVisibility="Hidden" >
+		<TextBlock Grid.Column="1" Grid.Row="0" x:Name="Titulo" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+		<Frame x:Name="FMPrincipal" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden" >
 			
 		</Frame>
 		
