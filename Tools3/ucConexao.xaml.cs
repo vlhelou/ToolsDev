@@ -46,5 +46,11 @@ namespace Tools3
 			ConexaoFechada?.Invoke(this, e);
 		}
 
+		protected void DigitaSenha (object sender, EventArgs e)
+		{
+			PasswordBox campoSenha = (PasswordBox)sender;
+			viewmodel.Conexao.Password = campoSenha.Password;
+		}
+
 	}
 }
