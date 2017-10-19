@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Parametros>
-  <Servidores>
-    <SrvBancos Nome="117" ConnectionString="data source=sqlh117;integrated security=true" />
-    <SrvBancos Nome="local" ConnectionString="data source=(local);integrated security=true" />
-  </Servidores>
-</Parametros>

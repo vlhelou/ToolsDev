@@ -37,7 +37,6 @@ E:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.exe
 E:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.pdb
 E:\GitHub\ToolsDev\Tools3\bin\Debug\Newtonsoft.Json.dll
 E:\GitHub\ToolsDev\Tools3\bin\Debug\Newtonsoft.Json.xml
-E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.csprojResolveAssemblyReference.cache
 E:\GitHub\ToolsDev\Tools3\obj\Debug\MainWindow.g.cs
 E:\GitHub\ToolsDev\Tools3\obj\Debug\ucConexao.g.cs
 E:\GitHub\ToolsDev\Tools3\obj\Debug\View\Banco\BuscaBanco.g.cs
@@ -64,5 +63,10 @@ E:\GitHub\ToolsDev\Tools3\obj\Debug\View\Programacao\CriaClasse.baml
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.g.resources
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.Properties.Resources.resources
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.csproj.GenerateResource.Cache
+E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.csproj.CoreCompileInputs.cache
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.exe
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.pdb
+E:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.exe.manifest
+E:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.application
+E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.exe.manifest
+E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.application

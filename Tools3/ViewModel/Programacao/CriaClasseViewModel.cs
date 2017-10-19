@@ -16,6 +16,8 @@ namespace Tools3.ViewModel.Programacao
 		private SqlConnection _CN;
 		private SqlCommand cmd;
 		private ObjetoBancoModel _Base = new ObjetoBancoModel();
+		private List<stcColunas> Colunas = new List<stcColunas>();
+
 		public ObjetoBancoModel Base
 		{
 			get { return _Base; }
@@ -123,6 +125,7 @@ namespace Tools3.ViewModel.Programacao
 		public string DAO { get; set; }
 		public string TypeScript { get; set; }
 
+
 		public ICommand GeraClick
 		{
 			get { return new CommandHandler(() => Gera()); }
@@ -132,49 +135,53 @@ namespace Tools3.ViewModel.Programacao
 		{
 			if (Selecionado.Tipo != "table")
 				return;
+            MontaColunas();
 
-			cmd.CommandText = "select top 0 * from " + Selecionado.NomeSql;
-			DataTable tabela = new DataTable();
-			tabela.Load(cmd.ExecuteReader());
-			GeraEntidade(tabela);
-			GeraDao(tabela);
-		}
+			GeraEntidade();
+			GeraDao();
+            GeraTypeScript();
+
+        }
 
 
-		private void GeraEntidade(DataTable tabela)
+		private void GeraEntidade()
 		{
 			StringBuilder resultado = new StringBuilder();
 
-			foreach (DataColumn coluna in tabela.Columns)
-			{
-				string tipo = NomeTipo(coluna);
-				
-				if (coluna.AllowDBNull & tipo!="string")
-					tipo += "?";
-				resultado.AppendFormat("public {0} {1}  {{ get;set; }} \n", tipo, coluna.ColumnName);
-			}
+            foreach(var coluna in Colunas)
+            {
+                string tipo = TipoSql2C(coluna.Tipo);
+                if (coluna.Nulo && tipo!="string")
+                    tipo += "?";
+                resultado.AppendFormat("public {0} {1}  {{ get;set; }} \n", tipo, coluna.Nome);
+            }
+            
 			Entidade = resultado.ToString();
 			OnPropertyChanged(nameof(Entidade));
 		}
 
-		private void GeraDao(DataTable tabela)
+		private void GeraDao()
 		{
 			StringBuilder resultado = new StringBuilder();
 			DAO = resultado.ToString();
 			string nomeObjeto = Selecionado.Nome;
 			List<string> listaColunasAspas = new List<string>();
-			foreach (DataColumn coluna in tabela.Columns)
-				listaColunasAspas.Add("\"" + coluna.ColumnName + "\"");
+            foreach(var coluna in Colunas)
+                listaColunasAspas.Add("\"" + coluna.Nome + "\"");
+
+    //        foreach (DataColumn coluna in tabela.Columns)
+				//listaColunasAspas.Add("\"" + coluna.ColumnName + "\"");
 
 			resultado.Append(GeraDAOConexao(nomeObjeto,listaColunasAspas));
-			resultado.Append(GeraDAOAtribui(nomeObjeto, tabela));
-			resultado.Append(GeraDAOBusca(nomeObjeto, tabela));
-			resultado.Append(GeraDAOGrava(nomeObjeto, tabela));
-			resultado.Append(GeraDAOExclui(nomeObjeto, tabela.Columns[0].ColumnName));
+			resultado.Append(GeraDAOAtribui(nomeObjeto));
+			resultado.Append(GeraDAOBusca(nomeObjeto));
+			resultado.Append(GeraDAOGrava(nomeObjeto));
+			resultado.Append(GeraDAOExclui(nomeObjeto, Colunas[0].Nome));
 			resultado.Append(GeraDAODispose());
 			DAO = resultado.ToString();
 			OnPropertyChanged(nameof(DAO));
 		}
+
 		private string NomeTipo(DataColumn coluna)
 		{
 			string[] tipos = coluna.DataType.ToString().Split('.');
@@ -196,7 +203,73 @@ namespace Tools3.ViewModel.Programacao
 
 		}
 
-		private string GeraDAOConexao(string objetoNome, List<string> listaColunasAspas)
+        private string TipoSql2C(string tipo)
+        {
+            string retorno = "";
+            switch (tipo.ToLower().Trim())
+            {
+                case "varchar":
+                case "char":
+                case "nvarchar":
+                case "nchar":
+                case "text":
+                case "ntext":
+                case "hierarchyid":
+                    retorno = "string";
+                    break;
+                case "bit":
+                    retorno = "bool";
+                    break;
+                case "int":
+                    retorno = "int";
+                    break;
+                case "smallint":
+                    retorno = "short";
+                    break;
+                case "tinyint":
+                    retorno = "byte";
+                    break;
+                case "date":
+                case "datetime":
+                    retorno = "DateTime";
+                    break;
+            }
+
+            return retorno;
+        }
+        private string TipoSql2TypeScript(string tipo)
+        {
+            string retorno = "";
+            switch (tipo.ToLower().Trim())
+            {
+                case "varchar":
+                case "char":
+                case "nvarchar":
+                case "nchar":
+                case "text":
+                case "ntext":
+                case "hierarchyid":
+                    retorno = "string";
+                    break;
+
+                case "bit":
+                case "int":
+                case "smallint":
+                case "tinyint":
+                    retorno = "number";
+                    break;
+
+                case "date":
+                case "datetime":
+                    retorno = "Date";
+                    break;
+            }
+
+            return retorno;
+        }
+
+
+        private string GeraDAOConexao(string objetoNome, List<string> listaColunasAspas)
 		{
 			StringBuilder retorno = new StringBuilder();
 			//cria conexao
@@ -220,17 +293,34 @@ namespace Tools3.ViewModel.Programacao
 
 		}
 
-		private string GeraDAOAtribui(string objetoNome, DataTable tabela)
+		private string GeraDAOAtribui(string objetoNome)
 		{
 			StringBuilder retorno = new StringBuilder();
 
 			// Atribui
-			retorno.AppendFormat("public static {0}Etd Atribui(DataRow ln, string prefixo=\"\") \n", objetoNome);
+            
+			retorno.AppendFormat("public static {0}Etd Atribui(object ln, string prefixo=\"\") \n", objetoNome);
 			retorno.AppendLine("{ ");
-			retorno.AppendLine("if (ln != null) ");
+			retorno.AppendLine("if (ln != null && ln is DataRow) ");
 			retorno.AppendLine("{ ");
 			retorno.AppendFormat("{0}Etd retorno = new {0}Etd(); \n", objetoNome);
-			foreach (DataColumn col in tabela.Columns)
+            foreach(var coluna in Colunas)
+            {
+                string tipo = TipoSql2C(coluna.Tipo);
+                if (tipo == "string")
+                {
+                    retorno.AppendFormat("retorno.{0} = ln[prefixo+\"{0}\"].ToString(); \n", coluna.Nome);
+                }
+                else
+                {
+                    if (coluna.Nulo)
+                        retorno.AppendFormat("retorno.{0} = ln.IsNull(prefixo+\"{0}\") ? null : ({1}?)ln[prefixo+\"{0}\"]; \n", coluna.Nome, tipo);
+                    else
+                        retorno.AppendFormat("retorno.{0} = ({1})ln[prefixo+\"{0}\"]; \n", coluna.Nome, tipo);
+                }
+            }
+            /*
+            foreach (DataColumn col in tabela.Columns)
 			{
 				string coluna = col.ColumnName;
 				//string atributo = ln["NomeObjeto"].ToString();
@@ -250,7 +340,7 @@ namespace Tools3.ViewModel.Programacao
 						retorno.AppendFormat("retorno.{0} = ({1})ln[prefixo+\"{0}\"]; \n", coluna, tipo);
 
 				}
-			}
+			}*/
 			retorno.AppendLine("return retorno; ");
 			retorno.AppendLine("} ");
 			retorno.AppendLine("return null; ");
@@ -261,14 +351,14 @@ namespace Tools3.ViewModel.Programacao
 
 		}
 
-		private string GeraDAOBusca(string objetoNome, DataTable tabela)
+		private string GeraDAOBusca(string objetoNome)
 		{
 			StringBuilder retorno = new StringBuilder();
 			//Busca
 
 			retorno.AppendFormat("public {0}Etd Busca(int id) \n", objetoNome);
 			retorno.AppendLine("{ ");
-			retorno.AppendFormat("cmd.CommandText = string.Format(\"select {{0}} from {0} where {1} = @id\", _Colunas); \n", objetoNome, tabela.Columns[0].ColumnName.ToString());
+			retorno.AppendFormat("cmd.CommandText = string.Format(\"select {{0}} from {0} where {1} = @id\", _Colunas); \n", objetoNome, Colunas[0].Nome);
 			retorno.AppendLine("cmd.Parameters.AddWithValue(\"@id\", id); ");
 			retorno.AppendLine("DataTable dt = new DataTable(); ");
 			retorno.AppendLine("da.Fill(dt); ");
@@ -285,15 +375,15 @@ namespace Tools3.ViewModel.Programacao
 			return retorno.ToString();
 		}
 
-		private string GeraDAOGrava(string objetoNome, DataTable tabela)
+		private string GeraDAOGrava(string objetoNome)
 		{
 			StringBuilder retorno = new StringBuilder();
-			string coluna1 = tabela.Columns[0].ColumnName;
+			string coluna1 =Colunas[0].Nome;
 			//Grava
 			retorno.AppendFormat("public {0}Etd Grava({0}Etd Item) ", objetoNome);
 			retorno.AppendLine("{ ");
 			retorno.AppendLine("bool novo = false;");
-			retorno.AppendFormat("cmd.CommandText = string.Format(\"select {{0}} from {0} where {1} = @id\", _Colunas); \n", tabela.TableName, coluna1);
+			retorno.AppendFormat("cmd.CommandText = string.Format(\"select {{0}} from {0} where {1} = @id\", _Colunas); \n", Selecionado.NomeSql, coluna1);
 			retorno.AppendFormat("cmd.Parameters.AddWithValue(\"@id\", Item.{0}); \n", coluna1);
 			retorno.AppendLine("SqlDataAdapter daup = new SqlDataAdapter(cmd); ");
 			retorno.AppendLine("SqlCommandBuilder cb = new SqlCommandBuilder(daup); ");
@@ -311,44 +401,50 @@ namespace Tools3.ViewModel.Programacao
 			retorno.AppendLine("ln = dtup.Rows[0]; ");
 			retorno.AppendLine("} ");
 
-			foreach (DataColumn col in tabela.Columns)
-			{
-				string coluna = col.ColumnName;
-				string tipo = NomeTipo(col);
-				bool nulo = col.AllowDBNull;
-				if (nulo)
-				{
-					if (tipo == "string")
-					{
-						retorno.AppendFormat("if (string.IsNullOrEmpty(Item.{0}))   \n", coluna);
-						retorno.AppendFormat("ln[\"{0}\"] = DBNull.Value; \n", coluna);
-						retorno.AppendLine("else");
-						retorno.AppendFormat("ln[\"{0}\"] = Item.{0}.Trim(); \n", coluna);
-					}
-					else
-					{
-						retorno.AppendFormat("if (Item.{0} == null)   \n", coluna);
-						retorno.AppendFormat("ln[\"{0}\"] = DBNull.Value; \n", coluna);
-						retorno.AppendLine("else");
-						retorno.AppendFormat("ln[\"{0}\"] = Item.{0}; \n", coluna);
-					}
+            foreach(var coluna in Colunas)
+            {
+                if (!coluna.Calculada & !coluna.Identity)
+                {
+                    string tipo = TipoSql2C(coluna.Tipo);
+                    if (coluna.Nulo)
+                    {
+                        if (tipo == "string")
+                        {
+                            retorno.AppendFormat("if (string.IsNullOrEmpty(Item.{0}))   \n", coluna.Nome);
+                            retorno.AppendFormat("ln[\"{0}\"] = DBNull.Value; \n", coluna.Nome);
+                            retorno.AppendLine("else");
+                            retorno.AppendFormat("ln[\"{0}\"] = Item.{0}.Trim(); \n", coluna.Nome);
+                        }
+                        else
+                        {
+                            retorno.AppendFormat("if (Item.{0} == null)   \n", coluna.Nome);
+                            retorno.AppendFormat("ln[\"{0}\"] = DBNull.Value; \n", coluna.Nome);
+                            retorno.AppendLine("else");
+                            retorno.AppendFormat("ln[\"{0}\"] = Item.{0}; \n", coluna.Nome);
+                        }
 
-				}
-				else
-					retorno.AppendFormat("ln[\"{0}\"] = Item.{0}; \n", coluna);
-			}
+                    }
+                    else
+                        retorno.AppendFormat("ln[\"{0}\"] = Item.{0}; \n", coluna.Nome);
+                }
+            }
 
 			retorno.AppendLine("if (novo)");
 			retorno.AppendLine("dtup.Rows.Add(ln); ");
 			retorno.AppendLine("daup.Update(dtup); ");
 			retorno.AppendLine("cmd.Parameters.Clear();");
-			retorno.AppendLine("if (novo)");
-			retorno.AppendLine("{");
-			retorno.AppendLine("cmd.CommandText = \"select @@identity\";");
-			retorno.AppendFormat("Item.{0} = Convert.ToInt32(cmd.ExecuteScalar());\n", coluna1);
-			retorno.AppendLine("}");
 
-			retorno.AppendFormat("return Busca(Item.{0}); ", coluna1);
+            if (Colunas.Where(p => p.Identity == true).Count() > 0)
+            {
+                retorno.AppendLine("if (novo)");
+                retorno.AppendLine("{");
+                retorno.AppendLine("cmd.CommandText = \"select @@identity\";");
+                retorno.AppendFormat("Item.{0} = Convert.ToInt32(cmd.ExecuteScalar());\n", coluna1);
+                retorno.AppendLine("}");
+            }
+
+
+            retorno.AppendFormat("return Busca(Item.{0}); ", coluna1);
 			retorno.AppendLine("} ");
 
 
@@ -368,6 +464,7 @@ namespace Tools3.ViewModel.Programacao
 			return retorno.ToString();
 		}
 
+        
 
 		private string GeraDAODispose()
 		{
@@ -395,14 +492,80 @@ namespace Tools3.ViewModel.Programacao
 
 		}
 
-		protected void OnPropertyChanged(string propertyname)
+        private void  GeraTypeScript()
+        {
+            StringBuilder retorno = new StringBuilder();
+            retorno.AppendFormat("export class {0} {{ \n", Selecionado.NomeSql.Replace("[","").Replace("]", "").Replace(".", ""));
+            foreach(var coluna in Colunas)
+            {
+                retorno.AppendFormat("{0}:{1};\n", coluna.Nome, TipoSql2TypeScript(coluna.Tipo));
+            }
+
+            retorno.Append("} \n");
+            TypeScript = retorno.ToString();
+            OnPropertyChanged(nameof(TypeScript));
+        }
+
+        protected void OnPropertyChanged(string propertyname)
 		{
 			if (PropertyChanged != null)
 			{
 				PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
 			}
 		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
+        private void MontaColunas()
+        {
+            cmd.CommandText = $@"SELECT 
+	            c.name
+	            , types.name Tipo
+	            , column_id
+	            , c.precision
+	            , c.scale
+	            , c.is_nullable
+	            , c.is_identity
+	            , is_computed 
+            FROM sys.columns c
+	            inner JOIN sys.objects o ON o.object_id = c.object_id
+	            inner join sys.types on 
+		            c.user_type_id = types.user_type_id
+            WHERE o.object_id = {Selecionado.Id}
+            ORDER BY c.column_id";
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            Colunas = new List<stcColunas>();
+            foreach(DataRow ln in dt.Rows)
+            {
+                stcColunas coluna = new stcColunas() {
+                    Ordem = (int)ln["Column_id"],
+                    Nome = ln["Name"].ToString(),
+                    Tipo=ln["Tipo"].ToString(),
+                    Comprimento=(byte)ln["precision"],
+                    Precisao=(byte)ln["scale"],
+                    Nulo=(bool)ln["is_nullable"],
+                    Identity=(bool)ln["is_identity"],
+                    Calculada=(bool)ln["is_computed"]
+                };
+                Colunas.Add(coluna);
+            }
+
+
+        }
+
+		private struct stcColunas
+		{
+
+            public int Ordem;
+			public string Nome;
+			public string Tipo;
+			public byte Comprimento;
+			public byte Precisao;
+			public bool Nulo;
+			public bool Identity;
+			public bool Calculada;
+
+		}
 	}
 }
