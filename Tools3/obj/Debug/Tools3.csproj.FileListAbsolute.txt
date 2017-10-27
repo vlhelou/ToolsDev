@@ -1,7 +1,6 @@
 C:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.exe.config
 C:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.exe
 C:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.pdb
-C:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.csprojResolveAssemblyReference.cache
 C:\GitHub\ToolsDev\Tools3\obj\Debug\MainWindow.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\ucConexao.g.cs
 C:\GitHub\ToolsDev\Tools3\obj\Debug\App.g.cs
@@ -70,3 +69,9 @@ E:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.exe.manifest
 E:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.application
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.exe.manifest
 E:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.application
+C:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.exe.manifest
+C:\GitHub\ToolsDev\Tools3\bin\Debug\Tools3.application
+C:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.csproj.CoreCompileInputs.cache
+C:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.exe.manifest
+C:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.application
+C:\GitHub\ToolsDev\Tools3\obj\Debug\Tools3.csprojResolveAssemblyReference.cache

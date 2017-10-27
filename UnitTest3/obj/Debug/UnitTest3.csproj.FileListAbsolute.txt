@@ -9,3 +9,4 @@ C:\GitHub\ToolsDev\UnitTest3\obj\Debug\UnitTest3.dll
 C:\GitHub\ToolsDev\UnitTest3\obj\Debug\UnitTest3.pdb
 E:\GitHub\ToolsDev\UnitTest3\obj\Debug\UnitTest3.csprojResolveAssemblyReference.cache
 E:\GitHub\ToolsDev\UnitTest3\obj\Debug\UnitTest3.csproj.CoreCompileInputs.cache
+C:\GitHub\ToolsDev\UnitTest3\obj\Debug\UnitTest3.csproj.CoreCompileInputs.cache
