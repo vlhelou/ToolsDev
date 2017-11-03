@@ -257,7 +257,8 @@ namespace Tools3.ViewModel.Programacao
 				{"tinyint", "number" },
 				{"date", "Date" },
 				{"datetime", "Date" },
-				{"uniqueidentifier","string" }
+				{"uniqueidentifier","string" },
+				{"xml","string" }
 			};
 			tipo = tipo.ToLower().Trim();
 			if (!TipoTypeScript.ContainsKey(tipo.ToLower().Trim()))
@@ -283,7 +284,8 @@ namespace Tools3.ViewModel.Programacao
 				{"tinyint", "TinyInt" },
 				{"date", "Date" },
 				{"datetime", "DateTime" },
-				{ "uniqueidentifier","UniqueIdentifier"}
+				{ "uniqueidentifier","UniqueIdentifier"},
+				{ "xml","string"}
 			};
 			//System.Data.SqlDbType.UniqueIdentifier
 			tipo = tipo.ToLower().Trim();
