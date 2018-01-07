@@ -13,6 +13,20 @@
             "Trust": true,
             "User": "",
             "Password": ""
+        },
+        {
+            "Server": ".",
+            "Database": "Lembra2",
+            "Trust": true,
+            "User": "",
+            "Password": ""
+        },
+        {
+            "Server": ".",
+            "Database": "DadosBR",
+            "Trust": true,
+            "User": "",
+            "Password": ""
         }
     ]
 }

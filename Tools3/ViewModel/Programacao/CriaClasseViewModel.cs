@@ -255,10 +255,13 @@ namespace Tools3.ViewModel.Programacao
 				{"int", "number" },
 				{"smallint", "number" },
 				{"tinyint", "number" },
-				{"date", "Date" },
+                {"float", "number" },
+                {"money", "number" },
+                {"date", "Date" },
 				{"datetime", "Date" },
 				{"uniqueidentifier","string" },
-				{"xml","string" }
+                {"geometry","string" },
+                {"xml","string" }
 			};
 			tipo = tipo.ToLower().Trim();
 			if (!TipoTypeScript.ContainsKey(tipo.ToLower().Trim()))
@@ -282,11 +285,15 @@ namespace Tools3.ViewModel.Programacao
 				{"int", "Int" },
 				{"smallint", "SmallInt" },
 				{"tinyint", "TinyInt" },
-				{"date", "Date" },
+                {"float", "Float" },
+                {"money", "Money" },
+                {"date", "Date" },
 				{"datetime", "DateTime" },
 				{ "uniqueidentifier","UniqueIdentifier"},
-				{ "xml","string"}
+                { "geometry","VarChar"},
+                { "xml","string"}
 			};
+            
 			//System.Data.SqlDbType.UniqueIdentifier
 			tipo = tipo.ToLower().Trim();
 			if (!TipoTypeScript.ContainsKey(tipo.ToLower().Trim()))
