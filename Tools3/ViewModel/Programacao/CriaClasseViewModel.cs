@@ -251,7 +251,7 @@ namespace Tools3.ViewModel.Programacao
 				{"text", "string" },
 				{"ntext", "string" },
 				{"hierarchyid", "string" },
-				{"bit", "bool" },
+				{"bit", "boolean" },
 				{"int", "number" },
 				{"smallint", "number" },
 				{"tinyint", "number" },
@@ -421,7 +421,7 @@ namespace Tools3.ViewModel.Programacao
 			retorno.AppendFormat("cmd.CommandText = string.Format(\"select {{0}} from {0} where {1} = @id\", _Colunas); \n", Selecionado.NomeSql, coluna1);
 			retorno.AppendFormat("cmd.Parameters.AddWithValue(\"@id\", Item.{0}); \n", coluna1);
 			retorno.AppendLine("SqlDataAdapter daup = new SqlDataAdapter(cmd); ");
-			retorno.AppendLine("ComandBuilder(daup); ");
+			retorno.AppendLine("CommandBuilder(daup); ");
 			retorno.AppendLine("DataTable dtup = new DataTable(); ");
 			retorno.AppendLine("daup.Fill(dtup); ");
 
@@ -502,7 +502,7 @@ namespace Tools3.ViewModel.Programacao
 		private string GeraDAODaCommand()
 		{
 			StringBuilder retorno = new StringBuilder();
-			retorno.AppendLine("public void ComandBuilder(SqlDataAdapter dap)");
+			retorno.AppendLine("public void CommandBuilder(SqlDataAdapter dap)");
 			retorno.AppendLine("{");
 			//SqlDataAdapter da = new SqlDataAdapter();
 

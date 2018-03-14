@@ -51,3 +51,4 @@ D:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.exe.manifest
 D:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.application
 D:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.exe
 D:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.pdb
+D:\GitHub\ToolsDev\Tools3\obj\Release\Tools3.csproj.CopyComplete
