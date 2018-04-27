@@ -244,7 +244,6 @@ namespace Tools3.ViewModel.Programacao
 
             Dictionary<string, string> TipoTypeScript = new Dictionary<string, string>
              {
-
                 {"varchar", "string" },
                 {"char", "string" },
                 {"nvarchar", "string" },
