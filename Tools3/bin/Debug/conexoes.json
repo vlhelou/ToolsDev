@@ -8,6 +8,13 @@
             "Password": ""
         },
         {
+            "Server": "sqlh117",
+            "Database": "BDCorporativo",
+            "Trust": true,
+            "User": "",
+            "Password": ""
+        },
+        {
             "Server": ".",
             "Database": "ComposicaoCusto",
             "Trust": true,

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\GitHub\ToolsDev\Tools3\obj\Debug\
+C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\
 Tools3
 none
 false
 DEBUG;TRACE
-D:\GitHub\ToolsDev\Tools3\App.xaml
+C:\GitHub\vlhelou\ToolsDev\Tools3\App.xaml
 9-1205428502
 
 26-979847295
-15-1026820841
+151927221218
 MainWindow.xaml;ucConexao.xaml;View\Banco\BuscaBanco.xaml;View\Banco\Dicionario.xaml;View\Banco\GeraInsert.xaml;View\Banco\MontaIn.xaml;View\Banco\Sql2Codigo.xaml;View\LeLinhas.xaml;View\Programacao\CriaClasse.xaml;
 
 False
