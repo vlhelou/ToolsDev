@@ -119,7 +119,6 @@ C:\GitHub\vlhelou\ToolsDev\Tools3\bin\Debug\Tools3.exe.manifest
 C:\GitHub\vlhelou\ToolsDev\Tools3\bin\Debug\Tools3.application
 C:\GitHub\vlhelou\ToolsDev\Tools3\bin\Debug\Tools3.exe
 C:\GitHub\vlhelou\ToolsDev\Tools3\bin\Debug\Tools3.pdb
-C:\GitHub\vlhelou\ToolsDev\Tools3\bin\Debug\Newtonsoft.Json.dll
 C:\GitHub\vlhelou\ToolsDev\Tools3\bin\Debug\Newtonsoft.Json.xml
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.csprojAssemblyReference.cache
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\MainWindow.g.cs
@@ -148,7 +147,6 @@ C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\View\Programacao\CriaClasse.baml
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.g.resources
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.Properties.Resources.resources
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.csproj.GenerateResource.cache
-C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.csproj.CoreCompileInputs.cache
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.exe.manifest
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.application
 C:\GitHub\vlhelou\ToolsDev\Tools3\obj\Debug\Tools3.csproj.CopyComplete
